@@ -1,0 +1,16 @@
+identification
+1. something related to size ex. k.
+2. smallest/largest.
+3. k smallest/kth smallest=max heap of size k.
+4. k largest/kth largest=min heap of size k.
+5. in max heap, max element is at the top, at the end of the traversal.
+6. in min heap, min element is at the top, at the end of the traversal.
+7.we make a stack of size equal to k, and when this size becomes greater than k we remove the top element. This is done till we reach the end of the array.
+8. for max heap, this stack is known as priority queue.It is under queue header file. Its syntax is:-
+priority_queue<int>maxHeap;
+9. for min heap, we also use priority_queue. Its syntax is:-
+priority_queue<int,vector<int>,greater<int>>minHeap;
+in this case if we need a pair, we replace int with pair<int,int> or can define this at the top in our code using type def.
+ex: type def pair<int,int> p;
+//pair<int,pair<int,int>>
+10.in cases where k is not given or there is no direct connection of k with smaller/greater/closest,in that case if we require smaller value then we will use minHeap or greater value then we will use maxHeap.

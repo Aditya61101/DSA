@@ -1,0 +1,3 @@
+s1.recursion=decision+choices
+s2.recursion tree/decision tree(i/p-o/p method)
+s3. initialize o/p with a empty string/0 etc as per requirement.

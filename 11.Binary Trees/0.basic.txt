@@ -1,0 +1,15 @@
+first node=root.
+every node has at most two children nodes.
+the node with no children node is the leaf node.
+1.full binary tree: either has 0 or 2 children.
+2.complete binary tree: all levels are completely filled except the last level. the last level has all nodes at left as possible.
+3.perfect binary tree: all leaf nodes are at same level.
+4.balanced binary tree: height of the tree at max log(N).here N is no. of nodes.
+5. degenerate binary tree: all the nodes have single children except the leaf node.
+
+6.DFS(depth first search):-
+i.InOrder traversal: (left->root->right), go to the left most subtree and print the left then root and then right node. T.C => O(N).
+ii.preOrder traversal: (root->left->right)
+iii.postOrder traversal: (left->right->root)
+
+7.BFS(breadth first search): go level wise and print the nodes from left to right.

@@ -1,0 +1,19 @@
+A-Z: 65-90
+a-z: 97-122
+//to take a substring from string s from index i of length l
+=> string substring=s.substr(i,l);
+//to replace a char or a substring from a string str
+=> str.replace(pos,len,str2);
+//to erase a character or substring
+=>// Deletes 4 characters from index number 1
+  str.erase(1,4);
+//find first occurrence of a character
+=> int index=str.find('a');
+//last occurrence of a character
+int index=str.find_last_of('a');
+//string to integer
+int x=stoi(str);
+//integer to string
+string str=to_string(x);
+//find next permutation
+next_permutation(str.begin(),str.end());

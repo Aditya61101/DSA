@@ -1,0 +1,53 @@
+1. it follows divide and merge strategy, we divide the
+2. it is a recursive algorithm.
+3. it is not an in-place sorting algorithm.
+4. it is a stable sorting algorithm.
+5. Time complexity: O(N*logN), Space complexity: O(N)
+
+Code: -
+#include <bits/stdc++.h>
+#define pb push_back
+using namespace std;
+void mergeArr(vector<int>&v, int l, int m, int h){
+    vector<int>temp;
+    // left subarray-> 1,1,2,3,4 and right subarray-> 2,4,5,6
+    // left is starting index of left subarray and right is the starting index of right subarray
+    int left=l,right=m+1;
+    while(left<=m&&right<=h){
+        if(v[left]<=v[right]){
+            temp.pb(v[left]);
+            left++;
+        } else{
+            temp.pb(v[right]);
+            right++;
+        }
+    }
+    // if left is still less than m then few more elements of left subarray has to be added
+    while(left<=m){
+        temp.pb(v[left]);
+        left++;
+    }
+    // if right is still less than h then few more elements of right subarray has to be added
+    while(right<=h){
+        temp.pb(v[right]);
+        right++;
+    }
+    // storing the sorted temp array in 'v' array between 'l' to 'h' index
+    for(int i=l;i<=h;i++){
+        v[i]=temp[i-l];
+    }
+}
+void mergeSort(int l,int h, vector<int>&v){
+    if(l>=h) return;
+    int mid=(l+h)/2;
+    mergeSort(l,mid,v);
+    mergeSort(mid+1,h,v);
+    mergeArr(v,l,mid,h);
+}
+int main() {
+    // Write C++ code here
+    vector<int>arr={3,1,2,4,1,5,2,6,4};
+    mergeSort(0,arr.size()-1,arr);
+    for(auto it:arr) cout<<it<<" ";
+    return 0;
+}

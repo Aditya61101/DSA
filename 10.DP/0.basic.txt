@@ -1,0 +1,24 @@
+identification of DP: -
+DP is an enhanced recursion.
+choice is given in a recursion Question.
+and when there is overlapping in recursion then DP will be used.
+this happens when there is at least 2 recursive call.
+optimal solution is required i.e, min.,max,largest etc.
+recursive function->memoization->bottom-up
+
+for base condition: think of the smallest valid input.
+1.memoization/top-down: we make matrix for those inputs whose values changes in recursive calls. eg. int dp[nw+1][maxW+1]. This improves time complexity only.
+2.bottom-up/tabulation: we make matrix of size same as of top-down matrix and initialize the matrix with base cases. This improves time complexity as well as space complexity.
+
+1.0-1 Knapsack problem(item taken as whole:1, not taken:0)
+i Subset problem
+ii Equal sum partition
+iii count of subset sum
+iv min. subset sum difference
+v target sum
+vi no. of subset of given difference
+
+for counting possible ways we return 1 if we have reached the base case else we return 0.
+for finding minimum/maximum if we reach somewhere which is out of bound then for minimum we return 1e9 and for maximum we return -1e9.
+for fixed starting/ending point and variable stating/ending point, the point which is fixed, from that point we start our recursive solution.
+if both are variable, then we start from the end for each column.

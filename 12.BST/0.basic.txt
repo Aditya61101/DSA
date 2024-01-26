@@ -1,0 +1,3 @@
+in BST, for every node leftN<curN<rightN.
+ideally, there is no duplicate node.
+generally, height is log2N.

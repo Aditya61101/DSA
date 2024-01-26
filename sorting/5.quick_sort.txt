@@ -1,0 +1,47 @@
+1. we pick a pivot element(usually first, last or mid element of array) and place it in its correct place in the sorted array.
+2. put all elements smaller than pivot element on its left and greater on its right.
+3. do the above steps in left and right subarrays w.r.t pivot recursively till there is only one element left in subarrays.
+4. Time Complexity:-
+    best case: O(nlogn)
+    worst case: O(n^2)
+    avg case: O(nlogn)
+    
+5. Space Complexity: O(1)
+6. Inplace: yes
+7. Stable: no
+
+int partition(vector<int>&v, int l, int h){
+    int pivot=l,i=l,j=h;
+    while(i<j){
+        //finding element greater than pivot
+        while(v[i]<=v[pivot]&&i<=h-1){
+            i++;
+        }
+        //finding element lesser than pivot
+        while(v[j]>v[pivot]&&j>=l+1){
+            j--;
+        }
+        //swap only when i is lesser than j, otherwise the j has come to left subarray
+        if(i<j) swap(v[i],v[j]);
+    }
+    // swapping the pivot element with its correct place which index j.
+    swap(v[l],v[j]);
+    //returning pivot index
+    return j;
+}
+void quickSort(int l,int h, vector<int>&v){
+    if(l>=h) return;
+    //finding the pivot index
+    int pivot=partition(v,l,h);
+    //left subarray
+    quickSort(l,pivot-1,v);
+    //right subarray
+    quickSort(pivot+1,h,v);
+}
+int main() {
+    // Write C++ code here
+    vector<int>arr={3,1,2,4,1,5,2,6,4};
+    quickSort(0,arr.size()-1,arr);
+    for(auto it:arr) cout<<it<<" ";
+    return 0;
+}

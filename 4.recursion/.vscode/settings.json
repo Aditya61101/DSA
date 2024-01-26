@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "iostream": "cpp",
+        "xstring": "cpp",
+        "vector": "cpp",
+        "algorithm": "cpp"
+    },
+    "cSpell.words": [
+        "Powerset"
+    ]
+}

@@ -1,0 +1,25 @@
+1. if current element is greater than next element, swap them, if not, move to next element.
+2. after each iteration, the largest element of the unsorted part will be at its correct position by adjacent swapping.
+3. average, worst time complexity: O(n^2), best case: O(n), when the array is already sorted.
+4. space complexity: O(1), i.e in-place
+5. stable: yes, because we only swap when current element is greater than next element, so the order of equal elements will not be changed.
+
+Code: -
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    vector<int> arr={13,46,24,52,20,9};
+    int n=arr.size();
+    for(int i=0;i<n;i++){
+        int didSwap=0;
+        for(int j=0;j<n-i-1;j++){
+            if(arr[j]>arr[j+1]){
+                swap(arr[j],arr[j+1]);
+                didSwap=1;
+            }
+        }
+        if(didSwap==0) break;
+    }
+    for(auto it:arr) cout<<it<<" ";
+    return 0;
+}

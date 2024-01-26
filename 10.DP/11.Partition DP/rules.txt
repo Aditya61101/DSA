@@ -1,0 +1,3 @@
+s1: start with the entire array such that start point->i, end point->j.
+s2: try all partitions, run a loop for this.
+s3: return the best possible two partition.
