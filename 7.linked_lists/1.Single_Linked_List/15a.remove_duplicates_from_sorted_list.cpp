@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
- 
+
 struct Node{
     int data;
     Node *next;
@@ -13,7 +13,7 @@ Node *head=NULL;
 
 void print(Node *temp){
     if (temp==NULL){
-        cout<<"linked list is empty :("<<endl;
+        cout<<"linked list is empty :("<<"\n";
         return;
     }
     while(temp!=NULL){
@@ -59,7 +59,6 @@ int main(){
     temp3->next=temp4;
     temp4->next=temp5;
     print(head);
-    Node *first=NULL;
     head=removeDuplicates(head);
     print(head);
 }

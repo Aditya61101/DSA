@@ -25,7 +25,7 @@ void solve(int arr[],int n,int k){
     }
 }
 int main(){
-    int arr[]={1,1,1,3,2,2,4};
+    int arr[]={1,2,2,3,3,3};
     int n=sizeof(arr)/sizeof(arr[0]);
     int k=2;
     solve(arr,n,k);
