@@ -52,7 +52,7 @@ Then:
 ---
 
 ## 📚 Topological Sort using Kahn's Algorithm (BFS)
-
+- Only applicable for DAGs.
 ```cpp
 vector<int> topologicalSort(int n, vector<vector<int>>& edges) {
     vector<vector<int>> adj(n);       // adjacency list
