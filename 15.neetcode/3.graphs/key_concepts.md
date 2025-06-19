@@ -88,3 +88,47 @@ vector<int> topologicalSort(int n, vector<vector<int>>& edges) {
     if (topo.size() != n) return {}; // graph has a cycle
     return topo;
 }
+```
+
+## 📚 Floyd-Warshall Algorithm
+
+The **Floyd-Warshall Algorithm** is a classic dynamic programming technique to:
+
+- Compute the **shortest paths** between all pairs of vertices in a **weighted graph** (can handle **negative weights**, but not negative cycles).
+- Or compute **transitive closure** in a **boolean graph** (i.e., check if there's a path between every pair of nodes).
+
+### 🔧 Time & Space Complexity
+
+- **Time Complexity:** `O(V³)` — where `V` is the number of vertices.
+- **Space Complexity:** `O(V²)` — for the distance or reachability matrix.
+
+### ✅ Use Cases
+
+- Finding **shortest distances** between all pairs of nodes.
+- Determining **reachability (transitive closure)** in a DAG or unweighted graph.
+- Detecting **negative cycles** when `dist[i][i] < 0` after execution.
+
+---
+
+### 🧮 C++ Implementation (Transitive Closure)
+```cpp
+vector<vector<bool>> floydWarshall(int n, vector<vector<int>>& edges) {
+    // Initialize reachability matrix
+    vector<vector<bool>> reachable(n, vector<bool>(n, false));
+
+    // Set direct connections from input edges
+    for (auto& edge : edges)
+        reachable[edge[0]][edge[1]] = true;
+
+    // Floyd-Warshall: compute transitive closure
+    for (int k = 0; k < n; ++k) {         // k = intermediate
+        for (int i = 0; i < n; ++i) {     // i = start
+            for (int j = 0; j < n; ++j) { // j = end
+                reachable[i][j] = reachable[i][j] || (reachable[i][k] && reachable[k][j]);
+            }
+        }
+    }
+
+    return reachable;
+}
+```
