@@ -132,3 +132,41 @@ vector<vector<bool>> floydWarshall(int n, vector<vector<int>>& edges) {
     return reachable;
 }
 ```
+
+### Union Find
+The **Union-Find** (or Disjoint Set Union, DSU) is a data structure that efficiently handles dynamic connectivity queries. It supports two primary operations:
+- **Union**: Connect two elements.
+- **Find**: Determine which component a particular element belongs to.
+### 🔧 Time Complexity
+- **Find**: `O(α(n))` — where `α` is the inverse Ackermann function, which grows very slowly.
+- **Union**: `O(α(n))` — same as Find.
+### ✅ Use Cases
+- Detecting cycles in undirected graphs.(for 2 nodes if they have same ultimate parent, then cycle exists)
+- Finding connected components. (no. of unique ultimate parents)
+- Kruskal's algorithm for Minimum Spanning Tree (MST).
+### 🧮 C++ Implementation
+```cpp
+class DSU {
+    vector<int>parent, size;
+    DSU(int n) {
+        parent.resize(n+1);
+        size.resize(n+1, 1);
+        for(int i=0; i<=n; i++) parent[i]=i;
+    }
+    int findParent(int node) {
+        if(parent[node]==node) return node;
+        return parent[node]=findParent(parent[node]);
+    }
+    void unionBySize(int u, int v){
+        int pu=findParent(u), pv=findParent(v);
+        if(pu==pv) return;
+        if(size[pu]>=size[pv]) {
+            parent[pv]=pu;
+            size[pu]+=size[pv];
+        } else {
+            parent[pu]=pv;
+            size[pv]+=size[pu];
+        }
+    }
+};
+```
