@@ -1,7 +1,9 @@
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
     int solve(int amount, vector<int>&coins, vector<int>&dp) {
         if(amount==0) return dp[amount]=0; // valid path, since no amount left we dont need to use any coin so we return 0
-        if(dp[amount]!=-1) return dp[amount]; // already calculated min coins for this remaining amount so we don't need to do recursion
+        if(dp[amount]!=-1) return dp[amount];
         
         int count=INT_MAX;
         for(int coin:coins){

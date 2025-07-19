@@ -1,8 +1,10 @@
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
     int minimumTotal(vector<vector<int>>& triangle) {
-        r = triangle.size();
-        c = triangle[r-1].size();
-        vector<int> dp(triangle.back());
+        int r = triangle.size();
+        int c = triangle[r-1].size();
+        vector<int>dp(triangle.back());
 
         for(int i=r-1;i>=0;i--){
             int r_size=triangle[i].size();

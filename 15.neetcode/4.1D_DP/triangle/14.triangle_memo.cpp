@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
     int r, c;
     int solve(int i, int j, vector<vector<int>>& tri, vector<vector<int>>& dp) {

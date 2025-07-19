@@ -1,11 +1,13 @@
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
     int n, max_s;
     bool solve(int i, string &s, unordered_set<string>&wo, vector<int>&dp) {
         if(i==n) return true;
         if(dp[i]!=-1) return dp[i];
         for(int j=i;j<n && j<=max_s+i-1;j++){
-            string st=s.substr(i, j-i+1);
-            if(wo.count(st) && solve(j+1, s, wo, dp)) return true;
+            string st=s.substr(i,j-i+1);
+            if(wo.count(st)&&solve(j+1,s,wo,dp)) return true;
         }
         return dp[i]=false;
     }

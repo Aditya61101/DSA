@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
     int solve(int n, vector<int>&dp){
         if(n==0||n==1||n==2) return dp[n]=n==2?1:n;

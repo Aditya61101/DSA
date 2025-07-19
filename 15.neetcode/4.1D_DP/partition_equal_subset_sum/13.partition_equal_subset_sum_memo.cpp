@@ -1,3 +1,5 @@
+#include<bits/stdc++.h>
+using namespace std;
 class Solution {
 public:
     int n;
@@ -16,8 +18,6 @@ public:
         int sum=accumulate(nums.begin(), nums.end(), 0);
         if(sum%2!=0) return false;
         int tar=sum/2;
-        sort(nums.begin(), nums.end());
-        if(nums[0]>tar) return false;
         n=nums.size();
         vector<vector<int>>dp(n,vector<int>(tar+1,-1));
         return solve(0,tar,nums,dp);
