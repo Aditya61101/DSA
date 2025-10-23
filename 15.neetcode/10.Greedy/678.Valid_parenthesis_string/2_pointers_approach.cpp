@@ -11,7 +11,7 @@ public:
             if(s[i]=='('||s[i]=='*') openCount+=1;
             else openCount-=1;
             // Count close parentheses or asterisks
-            if(s[n-i]==')'||s[n-i]=='*') closeCount+=1;
+            if(s[n-i-1]==')'||s[n-i-1]=='*') closeCount+=1;
             else closeCount-=1;
             // If at any point open count or close count goes negative, the string is invalid
             if(openCount<0||closeCount<0) return false;
