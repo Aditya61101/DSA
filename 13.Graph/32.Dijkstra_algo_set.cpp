@@ -14,13 +14,6 @@ using namespace std;
 typedef pair<ll, ll> pll;
 typedef pair<int, int> pii;
 
-ll inv(ll i) {if (i == 1) return 1; return (MOD - ((MOD / i) * inv(MOD % i)) % MOD) % MOD;}
-ll modMul(ll a, ll b) {a = a % MOD; b = b % MOD; return (((a * b) % MOD) + MOD) % MOD;}
-ll modAdd(ll a, ll b) {a = a % MOD; b = b % MOD; return (((a + b) % MOD) + MOD) % MOD;}
-ll gcd(ll a, ll b) { if (b == 0) return a; return gcd(b, a % b);}
-ll ceil_div(ll a, ll b) {return a % b == 0 ? a / b : a / b + 1;}
-ll pwr(ll a, ll b) {a %= MOD; ll res = 1; while (b > 0) {if (b & 1) res = res * a % MOD; a = a * a % MOD; b >>= 1;} return res;}
-
 void DS(ll s,vector<ll>&dist,vector<vector<pii>>&adj){
     set<pll>st;//queue<pll>q;
     dist[s]=0;
@@ -32,9 +25,8 @@ void DS(ll s,vector<ll>&dist,vector<vector<pii>>&adj){
         for(auto &pi:adj[node]){
             ll curr=pi.fi,wt=pi.se;
             if(wt+dis<dist[curr]){
-                if(dist[curr]!=INT_MAX){
-                    st.erase({dist[curr],curr});
-                }
+                // advantage of using set, we can't erase a mid between entry in priority_queue
+                if(dist[curr]!=INT_MAX) st.erase({dist[curr],curr});
                 dist[curr]=wt+dis;
                 st.insert({dist[curr],curr});
             }

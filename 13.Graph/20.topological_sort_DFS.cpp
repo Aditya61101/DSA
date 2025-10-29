@@ -14,20 +14,11 @@ using namespace std;
 #define FORIn(i,a,b) for(ll i=a;i<=b;i++)
 typedef pair<ll, ll> pll;
 
-ll inv(ll i) {if (i == 1) return 1; return (MOD - ((MOD / i) * inv(MOD % i)) % MOD) % MOD;}
-ll modMul(ll a, ll b) {a = a % MOD; b = b % MOD; return (((a * b) % MOD) + MOD) % MOD;}
-ll modAdd(ll a, ll b) {a = a % MOD; b = b % MOD; return (((a + b) % MOD) + MOD) % MOD;}
-ll gcd(ll a, ll b) { if (b == 0) return a; return gcd(b, a % b);}
-ll ceil_div(ll a, ll b) {return a % b == 0 ? a / b : a / b + 1;}
-ll pwr(ll a, ll b) {a %= MOD; ll res = 1; while (b > 0) {if (b & 1) res = res * a % MOD; a = a * a % MOD; b >>= 1;} return res;}
-
 //only for Directed Acyclic Graph
-void DFS(int s, vector<ll>&v,vector<vector<ll>>&a,stack<ll>&st){
+void dfs(int s, vector<ll>&v,vector<vector<ll>>&a,stack<ll>&st){
     v[s]=1;
     for(auto &e:a[s]){
-        if (v[e]!=1){
-            DFS(e,v,a,st);
-        }
+        if (v[e]!=1) dfs(e,v,a,st);
     }
     st.push(s);
 }
@@ -35,7 +26,7 @@ int main(){
     Ad22Hc15;
     ll n,m;
     cin>>n>>m;
-    vector<vector<ll>> adj(n);
+    vector<vector<ll>>adj(n);
     vector<ll>vis(n,0);
     stack<ll>st;
     FOR(i,0,m){
@@ -44,9 +35,7 @@ int main(){
         adj[x].pb(y);
     }
     FOR(i,0,m){
-        if (vis[i]!=1){
-            DFS(i,vis,adj,st);
-        }
+        if (vis[i]!=1) dfs(i,vis,adj,st);
     }
     while(!st.empty()){
         cout<<st.top()<<" ";
